@@ -1,14 +1,11 @@
 package com.IFome.Controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.IFome.Dto.ClienteDTO;
 import com.IFome.Model.Cliente;
 import com.IFome.Service.ClienteService;
 
@@ -25,8 +22,8 @@ public class ClienteController {
 	}
 	
 	@PostMapping("/cadastrar")
-	public void cadastrar(@RequestBody ClienteDTO clienteDto) {
-		this.service.cadastrar(clienteDto);
+	public void cadastrar(@RequestBody Cliente cliente) {
+		this.service.cadastrar(cliente);
 	}
 
 }

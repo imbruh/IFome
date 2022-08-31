@@ -40,14 +40,4 @@ public class Pessoa {
 	@Column(nullable = false)
 	private int telefone;
 	
-	public Pessoa getPessoa() {
-		return Pessoa.builder()
-				.id(id)
-				.nome(nome)
-				.cpf(cpf)
-				.endereco(endereco)
-				.telefone(telefone)
-				.build();
-	}
-	
 }
