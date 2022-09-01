@@ -1,8 +1,8 @@
 package com.IFome.Model;
 
+import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,16 +37,15 @@ public class Produto {
 	private double preco;
 	
 	@Column(nullable = false)
-	private int quantidade;
+	private int estoque;
 	
 	@ManyToOne
 	@JoinColumn(name="empresa_id", referencedColumnName = "id")
 	private Empresa empresa;
 	
-//	@OneToMany(mappedBy = "produtos")
-//	private Pedido pedido;
+	@JsonIgnore
+	@OneToMany
+	@JoinColumn(name = "produto_id")
+	private List<Pedido> pedidos;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "pedido_id", referencedColumnName = "id")
-	private Pedido pedido;
 }
