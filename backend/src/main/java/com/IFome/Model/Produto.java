@@ -2,11 +2,15 @@ package com.IFome.Model;
 
 import java.util.UUID;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,5 +37,14 @@ public class Produto {
 	@Column(nullable = false)
 	private int quantidade;
 	
-	//TODO Relacionamento empresa
+	@ManyToOne
+	@JoinColumn(name="empresa_id", referencedColumnName = "id")
+	private Empresa empresa;
+	
+//	@OneToMany(mappedBy = "produtos")
+//	private Pedido pedido;
+	
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "pedido_id", referencedColumnName = "id")
+	private Pedido pedido;
 }

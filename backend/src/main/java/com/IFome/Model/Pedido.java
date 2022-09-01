@@ -1,5 +1,6 @@
 package com.IFome.Model;
 
+import java.util.List;
 import java.util.UUID;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,5 +35,10 @@ public class Pedido {
 	@JoinColumn(name = "cliente_id", referencedColumnName = "id")
 	private Cliente cliente;
 
-	//TODO Relacionamento produto
+//	@ManyToOne(cascade = CascadeType.MERGE)
+//	@JoinColumn(name = "produto_id", referencedColumnName = "id")
+//	private List<Produto> produtos;
+	
+	@OneToMany(mappedBy = "pedido")
+	private List<Produto> produtos;
 }

@@ -35,6 +35,4 @@ public class Cliente {
 	@JoinColumn(name = "pessoa_id", referencedColumnName = "id")
 	private Pessoa pessoa;
 	
-	//TODO - PEDIDO
-	
 }

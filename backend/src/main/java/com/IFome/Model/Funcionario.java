@@ -38,13 +38,8 @@ public class Funcionario {
 	@JoinColumn(name = "pessoa_id", referencedColumnName = "id")
 	private Pessoa pessoa;
 	
-	//TODO - EMPRESA
-	
-//	public Funcionario(Funcionario funcionario) {
-//		this.id = funcionario.getId();
-//		this.matricula = funcionario.getMatricula();
-//		this.senha = funcionario.getSenha();
-//		this.dataContratacao = funcionario.getDataContratacao();
-//	}
+	@ManyToOne
+	@JoinColumn(name = "empresa_id", referencedColumnName = "id")
+	private Empresa empresa;
 	
 }
