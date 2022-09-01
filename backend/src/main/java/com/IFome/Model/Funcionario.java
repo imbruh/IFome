@@ -8,7 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,16 +34,17 @@ public class Funcionario {
 	@Column(nullable = false)
 	private LocalDate dataContratacao;
 	
-	@Column(nullable = false, unique = true)
-	private UUID pessoa_id;
+	@ManyToOne
+	@JoinColumn(name = "pessoa_id", referencedColumnName = "id")
+	private Pessoa pessoa;
 	
 	//TODO - EMPRESA
 	
-	public Funcionario(Funcionario funcionario) {
-		this.id = funcionario.getId();
-		this.matricula = funcionario.getMatricula();
-		this.senha = funcionario.getSenha();
-		this.dataContratacao = funcionario.getDataContratacao();
-	}
+//	public Funcionario(Funcionario funcionario) {
+//		this.id = funcionario.getId();
+//		this.matricula = funcionario.getMatricula();
+//		this.senha = funcionario.getSenha();
+//		this.dataContratacao = funcionario.getDataContratacao();
+//	}
 	
 }

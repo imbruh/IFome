@@ -1,11 +1,14 @@
 package com.IFome.Model;
 
 import java.util.UUID;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,14 +31,10 @@ public class Cliente {
 	@Column(nullable = false)
 	private String senha;
 	
-	@Column(nullable = false, unique = true)
-	private UUID pessoa_id;
-
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "pessoa_id", referencedColumnName = "id")
+	private Pessoa pessoa;
+	
 	//TODO - PEDIDO
 	
-	public Cliente(Cliente cliente) {
-		this.id = cliente.getId();
-		this.email = cliente.getEmail();
-		this.senha = cliente.getSenha();
-	}
 }
