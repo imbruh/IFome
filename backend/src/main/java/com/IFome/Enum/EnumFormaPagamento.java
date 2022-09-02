@@ -3,7 +3,7 @@ package com.IFome.Enum;
 import lombok.Getter;
 
 @Getter
-public enum FormaPagamento {
+public enum EnumFormaPagamento {
 	
 	DINHEIRO(1,"Dinheiro"),
 	CARTAO_CREDITO(2,"Cartão de Crédito"),
@@ -14,7 +14,7 @@ public enum FormaPagamento {
 	private int codigo;
 	private String descricao;
 	
-	private FormaPagamento(int codigo, String descricao) {
+	private EnumFormaPagamento(int codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}

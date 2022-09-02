@@ -3,7 +3,7 @@ package com.IFome.Enum;
 import lombok.Getter;
 
 @Getter
-public enum CategoriaEmpresa {
+public enum EnumCategoriaEmpresa {
 	
 	PIZZA(1,"Pizza"),
 	LANCHES(2, "Lanches"),
@@ -18,7 +18,7 @@ public enum CategoriaEmpresa {
 	private int codigo;
 	private String descricao;
 	
-	CategoriaEmpresa(int codigo, String descricao) {
+	EnumCategoriaEmpresa(int codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}

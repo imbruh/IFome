@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.IFome.Enum.CategoriaEmpresa;
+import com.IFome.Enum.EnumCategoriaEmpresa;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,7 +33,7 @@ public class Empresa {
 	private int cnpj;
 	
 	@Column(nullable = false)
-	private CategoriaEmpresa categoria;
+	private EnumCategoriaEmpresa categoria;
 	
 	@Column(nullable = false)
 	private int avaliacao;

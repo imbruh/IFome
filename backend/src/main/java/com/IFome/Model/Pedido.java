@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.IFome.Enum.FormaPagamento;
+import com.IFome.Enum.EnumFormaPagamento;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -43,7 +43,7 @@ public class Pedido {
 	private double total;
 	
 	@Column(nullable = false)
-	private FormaPagamento formaPagamento;
+	private EnumFormaPagamento formaPagamento;
 
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "cliente_id", referencedColumnName = "id")
