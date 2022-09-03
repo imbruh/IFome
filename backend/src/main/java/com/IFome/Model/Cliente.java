@@ -31,7 +31,7 @@ public class Cliente {
 	@Column(nullable = false)
 	private String senha;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "pessoa_id", referencedColumnName = "id")
 	private Pessoa pessoa;
 	

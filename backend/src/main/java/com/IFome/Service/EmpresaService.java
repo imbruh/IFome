@@ -18,7 +18,7 @@ public class EmpresaService {
 		return this.repository.findAll();
 	}
 	
-	public void cadastrar(Empresa empresa) {
-		this.repository.save(empresa);
+	public Empresa cadastrar(Empresa empresa) {
+		return this.repository.save(empresa);
 	}
 }

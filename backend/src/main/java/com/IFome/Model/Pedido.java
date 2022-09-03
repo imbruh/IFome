@@ -2,8 +2,6 @@ package com.IFome.Model;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 import com.IFome.Enum.FormaPagamento;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -45,11 +41,11 @@ public class Pedido {
 	@Column(nullable = false)
 	private FormaPagamento formaPagamento;
 
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@ManyToOne
 	@JoinColumn(name = "cliente_id", referencedColumnName = "id")
 	private Cliente cliente;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "produto_id")
+	@ManyToOne
+	@JoinColumn(name = "produto_id", referencedColumnName = "id")
 	private Produto produto;
 }

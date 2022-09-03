@@ -16,8 +16,15 @@ public class ClienteService {
 		return this.repository.findAll();
 	}
 	
-	public void cadastrar(Cliente cliente) {
-		this.repository.save(cliente);
+	public Cliente cadastrar(Cliente cliente) {
+		return this.repository.save(cliente);
 	}
 	
+	public Cliente atualizar(Cliente cliente) throws Exception {
+		if (cliente.getId() != null) {
+			return this.repository.save(cliente);			
+		}else {
+			throw new Exception("Cliente inválido.");
+		}
+	}
 }
