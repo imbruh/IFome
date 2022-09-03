@@ -29,6 +29,7 @@ public class Empresa {
 	@Column(nullable = false)
 	private String nome;
 	
+	//TODO - COLOCAR ANOTATION
 	@Column(nullable = false)
 	private int cnpj;
 	

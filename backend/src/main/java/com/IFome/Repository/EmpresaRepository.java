@@ -10,4 +10,6 @@ import com.IFome.Model.Empresa;
 @Repository
 public interface EmpresaRepository extends JpaRepository<Empresa, UUID>{
 
+	public Empresa findByNome(String nomeEmpresa);
+	
 }

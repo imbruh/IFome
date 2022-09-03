@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public enum EnumException {
 	
-	USUARIO_NAO_ENCONTRADO("Usuário não encontrado");
+	CLIENTE_NAO_ENCONTRADO(404,"Cliente não encontrado"),
+	FUNCIONARIO_NAO_ENCONTRADO(404,"Funcionario não encontrado");
 	
+	private int codigo;
 	private String descricaoErro;
-	
+
 }
