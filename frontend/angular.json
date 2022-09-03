@@ -8,9 +8,6 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
         }
       },
       "root": "",
@@ -20,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/IFome",
+            "outputPath": "dist/ifome",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,9 +28,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+	          "node_modules/@popperjs/core/dist/umd/popper.js",
+	          "node_modules/bootstrap/dist/js/bootstrap.js"         
+            ]
           },
           "configurations": {
             "production": {
@@ -106,6 +108,5 @@
         }
       }
     }
-  },
-  "defaultProject": "IFome"
+  }
 }
