@@ -1,5 +1,6 @@
 package com.IFome.Exception;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,15 +8,26 @@ import org.springframework.transaction.TransactionSystemException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.IFome.Service.EnumService;
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+	@Autowired
+	private EnumService enumService;
+	
 	@ExceptionHandler
 	public ResponseEntity<?> erroInterno (Throwable cause) {
 		System.out.println(cause.getClass().getName().contains("IFMException"));
 		System.out.println("ERRO INTERNO (BACK)");
 		System.out.println(cause);
-		return new ResponseEntity<String>(cause.getClass().getName().contains("IFMException")?cause.getMessage():"ERRO INTERNO (BACK)",HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<String>(cause.getClass().getName().contains("IFMException")
+				? cause.getMessage()
+				: "ERRO INTERNO (BACK)",
+				
+				cause.getClass().getName().contains("IFMException")
+				? HttpStatus.valueOf(enumService.getCodigoErro(cause.getMessage()))
+				: HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
 	@ExceptionHandler(TransactionSystemException.class)

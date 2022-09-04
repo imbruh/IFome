@@ -2,20 +2,25 @@ package com.IFome;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
 import com.IFome.Enum.CategoriaEmpresa;
+import com.IFome.Enum.EnumException;
 import com.IFome.Enum.FormaPagamento;
 import com.IFome.Model.Cliente;
 import com.IFome.Model.Empresa;
+import com.IFome.Model.Funcionario;
 import com.IFome.Model.Pedido;
 import com.IFome.Model.Pessoa;
 import com.IFome.Model.Produto;
 import com.IFome.Service.ClienteService;
 import com.IFome.Service.EmpresaService;
+import com.IFome.Service.FuncionarioService;
 import com.IFome.Service.PedidoService;
 import com.IFome.Service.ProdutoService;
 
@@ -27,7 +32,8 @@ public class IFomeApplication {
 			@Autowired ClienteService clienteService,
 			@Autowired EmpresaService empresaService,
 			@Autowired ProdutoService produtoService,
-			@Autowired PedidoService pedidoService) {
+			@Autowired PedidoService pedidoService,
+			@Autowired FuncionarioService funcionarioService) {
 		return args -> {
 			System.out.println("============== @SpringBootApplication Main ==============");
 			Cliente cliente = clienteService.cadastrar(
@@ -38,9 +44,9 @@ public class IFomeApplication {
 							Pessoa.builder()
 							.nome("ADMIN")
 							.dataNascimento(LocalDate.parse("2000-01-20"))
-							.cpf(764526444)
+							.cpf("42101948400")
 							.endereco("teste")
-							.telefone(839887766)
+							.telefone("00912345678")
 							.build())
 					.build());
 			
@@ -49,6 +55,13 @@ public class IFomeApplication {
 					.cnpj(465798465)
 					.categoria(CategoriaEmpresa.HAMBURGUER)
 					.avaliacao(2)
+					.build());
+			
+			Funcionario funcionario = funcionarioService.cadastrar(
+					Funcionario.builder()
+					.senha("admin")
+					.pessoa(cliente.getPessoa())
+					.empresa(empresa)
 					.build());
 			
 			Produto produtoDoubleChesse = produtoService.cadastrar(Produto.builder()
@@ -83,6 +96,7 @@ public class IFomeApplication {
 					.cliente(cliente)
 					.produto(produtoCocaCola)
 					.build());
+
 		};
 	}
 	

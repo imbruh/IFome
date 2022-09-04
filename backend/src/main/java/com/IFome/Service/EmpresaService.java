@@ -18,6 +18,10 @@ public class EmpresaService {
 		return this.repository.findAll();
 	}
 	
+	public Empresa buscar(String nomeEmpresa) {
+		return this.repository.findByNome(nomeEmpresa);
+	}
+	
 	public Empresa cadastrar(Empresa empresa) {
 		return this.repository.save(empresa);
 	}
