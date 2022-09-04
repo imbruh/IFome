@@ -4,9 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {BadgeModule} from 'primeng/badge';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import {BadgeModule} from 'primeng/badge';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    BadgeModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
