@@ -2,8 +2,6 @@ package com.IFome.Model;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,11 +43,11 @@ public class Pedido {
 	@Column(nullable = false)
 	private EnumFormaPagamento formaPagamento;
 
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@ManyToOne
 	@JoinColumn(name = "cliente_id", referencedColumnName = "id")
 	private Cliente cliente;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "produto_id")
+	@ManyToOne
+	@JoinColumn(name = "produto_id", referencedColumnName = "id")
 	private Produto produto;
 }

@@ -19,15 +19,7 @@ public class EmpresaService {
 		return this.repository.findAll();
 	}
 	
-//	public List<Empresa> listarPorCategoria(EnumCategoriaEmpresa categoria) {
-//		List<Empresa> empresas = this.repository.findByCategoria(categoria);
-//		
-//		if(empresas == null || empresas.isEmpty()) {
-//			//exception
-//		}
-//	}
-	
-	public void cadastrar(Empresa empresa) {
-		this.repository.save(empresa);
+	public Empresa cadastrar(Empresa empresa) {
+		return this.repository.save(empresa);
 	}
 }

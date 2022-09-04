@@ -1,10 +1,8 @@
 package com.IFome.Service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.IFome.Model.Produto;
 import com.IFome.Repository.ProdutoRepository;
 
@@ -18,8 +16,8 @@ public class ProdutoService {
 		return this.repository.findAll();
 	}
 	
-	public void cadastrar(Produto produto) {
-		this.repository.save(produto);
+	public Produto cadastrar(Produto produto) {
+		return this.repository.save(produto);
 	}
 	
 }
