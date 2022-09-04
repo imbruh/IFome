@@ -19,7 +19,7 @@ import {BadgeModule} from 'primeng/badge';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    BadgeModule
+    BadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
