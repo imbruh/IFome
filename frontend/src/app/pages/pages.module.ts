@@ -8,11 +8,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-import { MatError, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   imports: [
@@ -25,10 +24,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     MatCardModule,
     MatRadioModule,
-    MatInputModule,
     MatFormFieldModule,
+    MatInputModule,
     MatDatepickerModule,
     MatButtonModule,
+    MatCheckboxModule
   ],
   declarations: [LoginComponent]
 })
