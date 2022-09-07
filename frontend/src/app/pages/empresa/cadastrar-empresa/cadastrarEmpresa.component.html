@@ -1,0 +1,60 @@
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="row col-md-8 text-center">
+        <div class="col-12">
+            <mat-card class="p-1 ">
+                <mat-card class="py-1 d-flex justify-content-center formulario" >
+                    <div class="col-6 ">
+                        <div>
+                            <h1 class="mt-5">Cadastrar Empresa</h1>
+                            <hr>
+                        </div>
+                        <form [formGroup]="formulario">
+                            <div>
+                                <mat-form-field class="mt-3">
+                                    <mat-label class="text-center">Nome</mat-label>
+                                    <input matInput formControlName="nome" type="text"  placeholder="Digite o nome da Empresa">
+                                    <mat-error *ngIf="getCampo('nome').hasError('required')">
+                                        O Nome da Empresa <strong>obrigatório</strong>.
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field class="mt-3">
+                                    <mat-label class="text-center">CNPJ</mat-label>
+                                    <input matInput formControlName="cnpj" maxlength="18" (keypress)="mascaraCNPJ()" type="text"  placeholder="Digite o CNPJ da Empresa">
+                                    <mat-error *ngIf="getCampo('cnpj').hasError('required')">
+                                        O CNPJ é <strong>obrigatório</strong>.
+                                    </mat-error>
+                                    <mat-error *ngIf="getCampo('cnpj').hasError('minlength')">
+                                        O CNPJ precisa ter <strong>14 dígitos</strong>.
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field class="mt-3" appearance="fill">
+                                    <mat-label>Categoria</mat-label>
+                                    <mat-select formControlName="categoria" multiple>
+                                    <mat-select-trigger>
+                                        {{getCampo('categoria').value[0]}}
+                                        <span *ngIf="(getCampo('categoria').value.length) > 1">
+                                            (+{{(getCampo('categoria').value.length || 0) - 1}} {{getCampo('categoria').value.length === 2 ? 'outro' : 'outros'}})
+                                        </span>
+                                    </mat-select-trigger>
+                                    <mat-option *ngFor="let categoria of categorias" [value]="categoria">{{categoria}}</mat-option>
+                                    </mat-select>
+                                    <mat-error class="align-items-start" *ngIf="getCampo('categoria').hasError('required')">
+                                        A categoria é <strong>obrigatória</strong>.
+                                    </mat-error>
+
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <button mat-raised-button color="accent" (click)="cadastrar()" class="my-3">Cadastrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </mat-card>
+            </mat-card>
+        </div>
+    </div>
+</div>
