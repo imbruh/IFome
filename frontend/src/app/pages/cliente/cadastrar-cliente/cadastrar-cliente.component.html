@@ -1,0 +1,120 @@
+<div class="container d-flex justify-content-center">
+    <div class="align-self-center row col-md-10">
+        <mat-card class="p-1">
+            <mat-card class="py-1 mt-1 matcard">
+                <div class="row d-flex justify-content-center text-center wrap">
+                    <div class="col-6 d-flex formulario p-0 text-center">
+                        <div class="row d-flex text-center m-0 p-0 w-100">     
+                            <div class="col-12">
+                                <div>
+                                    <h1 class="mt-5">CADASTRO</h1>
+                                    <hr>
+                                </div>
+                
+                                <form class="example-form" [formGroup]="formulario">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Nome</mat-label>
+                                                <input matInput formControlName="nome">
+                                                <mat-error *ngIf="getCampo('nome').hasError('required')">
+                                                    O Nome é <strong>obrigatório</strong>.
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-6">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Data de Nascimento</mat-label>
+                                                <input matInput placeholder="DD/MM/AAAA" formControlName="dataNascimento" (keypress)="mascaraDataNascimento()" maxlength="10">
+                                                <mat-error *ngIf="getCampo('nome').hasError('required')">
+                                                    A data de nascimento é <strong>obrigatória</strong>.
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-6">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>CPF</mat-label>
+                                                <input matInput placeholder="000.000.000-00" formControlName="cpf" (keypress)="mascaraCpf()" maxlength="14">
+                                                <mat-error *ngIf="getCampo('cpf').hasError('required')">
+                                                    O cpf é <strong>obrigatório</strong>.
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-6">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label>Telefone</mat-label>
+                                                <input matInput formControlName="telefone">
+                                                <mat-error *ngIf="getCampo('telefone').hasError('required')">
+                                                    O telefone é <strong>obrigatório</strong>.
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Endereço</mat-label>
+                                            <input matInput formControlName="endereco">
+                                            <mat-error *ngIf="getCampo('endereco').hasError('required')">
+                                                O endereço é <strong>obrigatório</strong>.
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label class="text-center">Email</mat-label>
+                                                <input matInput type="email" formControlName="email" placeholder="Digite seu email">
+                                                <mat-error *ngIf="getCampo('email').hasError('email') && !getCampo('email').hasError('required')">
+                                                    Por favor, entre com um email válido.
+                                                </mat-error>
+                                                <mat-error *ngIf="getCampo('email').hasError('required')">
+                                                    O Email é <strong>obrigatório</strong>.
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label class="text-center">Senha</mat-label>
+                                                <input matInput type="password" formControlName="senha" placeholder="Digite seu senha">
+                                                <mat-error *ngIf="getCampo('senha').hasError('required')">
+                                                    A senha é <strong>obrigatória</strong>.
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <mat-form-field class="example-full-width">
+                                                <mat-label class="text-center">Confirmar senha</mat-label>
+                                                <input matInput type="password" formControlName="confirmacaoSenha" placeholder="Digite seu confirmacaoSenha">
+                                                <mat-error *ngIf="getCampo('confirmacaoSenha').hasError('required')">
+                                                    A confirmação da senha é <strong>obrigatória</strong>.
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <button mat-raised-button color="accent" (click)="cadastrar()" class="mt-1 mb-2">Cadastrar</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>                   
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+        </mat-card>
+    </div>
+</div>
