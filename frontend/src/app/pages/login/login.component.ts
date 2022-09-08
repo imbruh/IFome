@@ -15,12 +15,15 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.configurarFormulario();
+        console.log(this.validarSessao() != null)
         if(this.validarSessao() != null) {
             this.getCampo('lembrarUsuario').setValue(true);
             this.validarSessao().tipoUsuario == 1 
                 ? this.getCampo('email').setValue(this.validarSessao().usuario)
                 : this.getCampo('matricula').setValue(this.validarSessao().usuario);
             this.getCampo('radioButton').setValue(this.validarSessao().tipoUsuario)  
+        } else {
+            this.getCampo('radioButton').setValue("1")  
         }
     }
 
