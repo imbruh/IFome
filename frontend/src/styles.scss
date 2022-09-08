@@ -2,8 +2,8 @@
 @import './coresDoSite.scss';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-    width: 100%;
-    
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;    
+        background-image: url("./assets/background.png");
+        background-size: 80%;   
 }
 
