@@ -14,6 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CadastrarEmpresaComponent } from './empresa/cadastrar-empresa/cadastrarEmpresa.component';
 import { MatSelectModule } from '@angular/material/select'
+import { CadastrarClienteComponent } from './cliente/cadastrar-cliente/cadastrar-cliente.component';
 
 @NgModule({
     imports: [
