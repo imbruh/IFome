@@ -19,7 +19,7 @@
                                 <form class="example-form" [formGroup]="formulario">
                                     <div *ngIf="!ehFuncionario; else funcionarioForm">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12 col-sm-12">
                                                 <mat-form-field class="mat-form-field-pessoa">
                                                     <mat-label>Nome</mat-label>
                                                     <input matInput formControlName="nome" placeholder="Digite seu nome">
@@ -28,7 +28,7 @@
                                                     </mat-error>
                                                 </mat-form-field>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12 col-sm-12">
                                                 <mat-form-field class="mat-form-field-pessoa">
                                                     <mat-label>Data de Nascimento</mat-label>
                                                     <input matInput placeholder="DD/MM/AAAA" formControlName="dataNascimento" (keypress)="mascaraDataNascimento()" maxlength="10">
@@ -38,7 +38,7 @@
                                                 </mat-form-field>
                                             </div>
                                         
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12 col-sm-12">
                                                 <mat-form-field class="mat-form-field-pessoa">
                                                     <mat-label>CPF *</mat-label>
                                                     <input matInput placeholder="000.000.000-00" formControlName="cpf" (keypress)="mascaraCpf()" maxlength="14">
@@ -48,7 +48,7 @@
                                                 </mat-form-field>
                                             </div>
                                         
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12 col-sm-12">
                                                 <mat-form-field class="mat-form-field-pessoa">
                                                     <mat-label>Telefone</mat-label>
                                                     <input matInput formControlName="telefone" placeholder="Digite seu telefone">
@@ -62,7 +62,7 @@
 
                                     <ng-template #funcionarioForm>
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12 col-sm-12">
                                                 <mat-form-field class="mat-form-field-pessoa">
                                                     <mat-label>CPF *</mat-label>
                                                     <input matInput placeholder="000.000.000-00" formControlName="cpf" (keypress)="mascaraCpf()" maxlength="14" (keyup.enter)="pesquisarPorCpf()">
@@ -75,7 +75,7 @@
                                                     </mat-error>
                                                 </mat-form-field>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12 col-sm-12">
                                                 <mat-form-field class="mat-form-field-pessoa">
                                                     <mat-label>Nome</mat-label>
                                                     <input matInput formControlName="nome" placeholder="Digite seu nome">
@@ -85,7 +85,7 @@
                                                 </mat-form-field>
                                             </div>
                                         
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12 col-sm-12">
                                                 <mat-form-field class="mat-form-field-pessoa">
                                                     <mat-label>Data de nascimento</mat-label>
                                                     <input matInput formControlName="dataNascimento" placeholder="DD/MM/AAAA">
@@ -95,7 +95,7 @@
                                                 </mat-form-field>
                                             </div>
                                         
-                                            <div class="col-6">
+                                            <div class="col-lg-6 col-md-12 col-sm-12">
                                                 <mat-form-field class="mat-form-field-pessoa">
                                                     <mat-label>Telefone</mat-label>
                                                     <input matInput formControlName="telefone" placeholder="Digite seu telefone">
@@ -108,19 +108,21 @@
                                     </ng-template>
                                     
 
-                                    <div class="row mt-3">                               
-                                        <mat-form-field>
-                                            <mat-label>Endereço</mat-label>
-                                            <input matInput formControlName="endereco" placeholder="Digite seu endereço">
-                                            <mat-error *ngIf="getCampo('endereco').hasError('required')">
-                                                O endereço é <strong>obrigatório</strong>.
-                                            </mat-error>
-                                        </mat-form-field>
+                                    <div class="row">  
+                                        <div class="col-12 w-100">
+                                            <mat-form-field class="w-100">
+                                                <mat-label>Endereço</mat-label>
+                                                <input matInput formControlName="endereco" placeholder="Digite seu endereço">
+                                                <mat-error *ngIf="getCampo('endereco').hasError('required')">
+                                                    O endereço é <strong>obrigatório</strong>.
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>                             
                                     </div>
 
-                                    <div class="row mt-3" *ngIf="!ehFuncionario; else funcionarioMatricula">
-                                        <div class="col-12">
-                                            <mat-form-field>
+                                    <div class="row mt-3 d-flex justify-content-center"  *ngIf="!ehFuncionario; else funcionarioMatricula">
+                                        <div class="col-lg-6 col-md-12 col-sm-12" >
+                                            <mat-form-field class="w-100">
                                                 <mat-label class="text-center">Email</mat-label>
                                                 <input matInput type="email" formControlName="email" placeholder="Digite seu email">
                                                 <mat-error *ngIf="getCampo('email').hasError('email') && !getCampo('email').hasError('required')">
@@ -132,19 +134,21 @@
                                             </mat-form-field>
                                         </div>
                                     </div>
-
+                                                             
                                     <ng-template #funcionarioMatricula>
-                                        <div class="col-12">
-                                            <mat-form-field>
-                                                <mat-label class="text-center">Matrícula</mat-label>
-                                                <input matInput type="text" formControlName="matricula" placeholder="Digite sua matrícula">
-                                            </mat-form-field>
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-lg-6 col-md-12 col-sm-12 ">
+                                                <mat-form-field class="w-100">
+                                                    <mat-label class="text-center">Matrícula</mat-label>
+                                                    <input matInput type="text" formControlName="matricula" placeholder="Digite sua matrícula">
+                                                </mat-form-field>
+                                            </div>
                                         </div>
                                     </ng-template>
 
-                                    <div class="row mt-3">
-                                        <div class="col-12">
-                                            <mat-form-field>
+                                    <div class="row d-flex justify-content-center">
+                                        <div class="col-lg-6 col-md-12 col-sm-12 ">
+                                            <mat-form-field class="w-100">
                                                 <mat-label class="text-center">Senha</mat-label>
                                                 <input matInput type="password" formControlName="senha" placeholder="Digite sua senha">
                                                 <mat-error *ngIf="getCampo('senha').hasError('required')">
@@ -154,9 +158,11 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mt-3" *ngIf="!ehFuncionario">
-                                        <div class="col-12">
-                                            <mat-form-field>
+                                    
+
+                                    <div class="row d-flex justify-content-center" *ngIf="!ehFuncionario">
+                                        <div class="col-lg-6 col-md-12 col-sm-12">
+                                            <mat-form-field class="w-100">
                                                 <mat-label class="text-center">Confirmar senha</mat-label>
                                                 <input matInput type="password" formControlName="confirmacaoSenha" placeholder="Confirme sua senha">
                                                 <mat-error *ngIf="getCampo('confirmacaoSenha').hasError('required')">
