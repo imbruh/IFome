@@ -43,7 +43,7 @@
                                                 A Matrícula é <strong>obrigatória</strong>.
                                             </mat-error>
                                             <mat-error *ngIf="getCampo('matricula').hasError('minlength') || getCampo('matricula').hasError('maxlength')">
-                                                A Matrícula deve conter apenas <strong>14 caracteres</strong>.
+                                                A Matrícula deve conter <strong>14 caracteres</strong>.
                                             </mat-error>
                                             </mat-form-field>
                                         </ng-template>
@@ -68,7 +68,7 @@
                                     </div>
 
                                     <div class="mt-4">
-                                        <p>Ainda não possui uma conta? <strong style="cursor: pointer;">Cadastre-se</strong></p>
+                                        <p>Ainda não possui uma conta? <strong (click)="telaCadastro()" style="cursor: pointer;">Cadastre-se</strong></p>
                                     </div>
 
                                 </form>

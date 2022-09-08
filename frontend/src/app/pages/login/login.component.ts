@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
 
     public formulario!: FormGroup;
 
-    constructor(private form: FormBuilder) { }
+    constructor(private form: FormBuilder, private router: Router) { }
 
     ngOnInit() {
         this.configurarFormulario();
@@ -66,5 +67,9 @@ export class LoginComponent implements OnInit {
        if(this.getCampo('lembrarUsuario').value) {
             this.salvarSessao();
        }
+    }
+
+    telaCadastro(): void {
+        this.router.navigate(['cadastro-cliente'])
     }
 }

@@ -1,4 +1,17 @@
+.container {
+    height: 100vh !important;
+}
+
 .matcard {
     background: rgb(238,174,202);
     background: linear-gradient(0deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.mat-form-field-pessoa {
+    width: 100%;
+}
+
+.cpfPesquisar {
+    cursor: pointer;
+    padding-top: 20%;
 }
