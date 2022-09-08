@@ -9,7 +9,7 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
-        path:"cadastrar-empresa",
+        path:"cadastro-empresa",
         component:CadastrarEmpresaComponent
     }
 ];

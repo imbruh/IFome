@@ -20,7 +20,7 @@
                             </div>
                             <div>
                                 <mat-form-field class="mt-3">
-                                    <mat-label class="text-center">CNPJ</mat-label>
+                                    <mat-label class="text-center">CNPJ *</mat-label>
                                     <input matInput formControlName="cnpj" maxlength="18" (keypress)="mascaraCNPJ()" type="text"  placeholder="Digite o CNPJ da Empresa">
                                     <mat-error *ngIf="getCampo('cnpj').hasError('required')">
                                         O CNPJ é <strong>obrigatório</strong>.
