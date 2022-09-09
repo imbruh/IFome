@@ -33,7 +33,7 @@ export class CadastrarClienteComponent implements OnInit {
             this.getCampo('cidade').disable();
             this.getCampo('estado').disable();
             this.getCampo('complemento').disable();
-        }
+        }        
     }
 
     configurarFormulario(): void {
@@ -52,7 +52,7 @@ export class CadastrarClienteComponent implements OnInit {
             email: new FormControl('', [Validators.required, Validators.email]),
             matricula: new FormControl('', Validators.required),
             senha: new FormControl('', Validators.required),
-            confirmacaoSenha: new FormControl('', Validators.required)
+            confirmacaoSenha: new FormControl('', Validators.compose([Validators.required]))
         })
     }
 
@@ -74,7 +74,7 @@ export class CadastrarClienteComponent implements OnInit {
         }
     }
 
-    pesquisarPorCpf() {
+    pesquisarPorCpf() { 
         if(this.getCampo('cpf').valid) {
             //Adicionar a função de busca de um usuario pelo cpf e colocar
             //esses codigos abaixo no subscribe
@@ -98,8 +98,18 @@ export class CadastrarClienteComponent implements OnInit {
         this.getCampo('estado').setValue(endereco.uf);
     }
 
-    cadastrar() {
+    passwordMatch() {
+        if(this.getCampo('senha').value !== this.getCampo('confirmacaoSenha').value) {
+            this.getCampo('confirmacaoSenha').setErrors({noMatchPassword: true})
+        }
+        else{
+            this.getCampo('confirmacaoSenha').updateValueAndValidity();
+        }
+    }
 
+    cadastrar() { 
+        this.passwordMatch();
+        this.formulario.valid;
     }
     
 }
