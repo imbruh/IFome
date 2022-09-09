@@ -26,21 +26,33 @@ export class CadastrarClienteComponent implements OnInit {
             this.getCampo('nome').disable();
             this.getCampo('telefone').disable();
             this.getCampo('dataNascimento').disable();
-            this.getCampo('endereco').disable();
+            this.getCampo('cep').disable();
+            this.getCampo('rua').disable();
+            this.getCampo('bairro').disable();
+            this.getCampo('numero').disable();
+            this.getCampo('cidade').disable();
+            this.getCampo('estado').disable();
+            this.getCampo('complemento').disable();
         }
     }
 
     configurarFormulario(): void {
         this.formulario = this.form.group ({
-            nome: new FormControl(null, Validators.required),
+            nome: new FormControl('', Validators.required),
             dataNascimento: new FormControl('', Validators.required),
             cpf: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(14), Validators.minLength(14)])),
-            telefone: new FormControl(null, Validators.required),
-            endereco: new FormControl(null, Validators.required), 
-            email: new FormControl(null, [Validators.required, Validators.email]),
-            matricula: new FormControl(null, Validators.required),
+            telefone: new FormControl('', Validators.required),
+            cep: new FormControl('', Validators.compose([Validators.required, Validators.maxLength(8), Validators.minLength(8)])), 
+            rua: new FormControl('', Validators.required),
+            bairro: new FormControl('', Validators.required),
+            numero: new FormControl('', Validators.required),
+            cidade: new FormControl('', Validators.required),
+            estado: new FormControl('', Validators.required),
+            complemento: new FormControl(''),
+            email: new FormControl('', [Validators.required, Validators.email]),
+            matricula: new FormControl('', Validators.required),
             senha: new FormControl('', Validators.required),
-            confirmacaoSenha: new FormControl(null, Validators.required)
+            confirmacaoSenha: new FormControl('', Validators.required)
         })
     }
 
@@ -71,6 +83,19 @@ export class CadastrarClienteComponent implements OnInit {
            this.getCampo('telefone').enable();
            this.getCampo('endereco').enable();
         }
+    }
+
+    pesquisarPorCep() {
+       fetch(`https://viacep.com.br/ws/${this.getCampo('cep').value}/json/`)
+                        .then(res => res.json())
+                        .then(json => this.setarEndereco(json));
+    }
+
+    setarEndereco(endereco: any) {
+        this.getCampo('bairro').setValue(endereco.bairro);
+        this.getCampo('rua').setValue(endereco.logradouro);
+        this.getCampo('cidade').setValue(endereco.localidade);
+        this.getCampo('estado').setValue(endereco.uf);
     }
 
     cadastrar() {
