@@ -10,4 +10,6 @@ import com.IFome.Model.Cliente;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, UUID>{
 
+	public Cliente findByEmail(String email);
+	
 }

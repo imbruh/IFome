@@ -18,5 +18,7 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, UUID> 
 			+ " ON fu.empresa = em "
 			+ " WHERE em.nome = :nomeEmpresa ")
 	public List<String> matriculaList(@Param("nomeEmpresa") String nomeEmpresa);
+
+	public Funcionario findByMatricula(String login);
 	
 }
